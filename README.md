@@ -4,7 +4,7 @@ This is command-line to-do list application with a text based user interface tha
 
 ## Development
 
-To run this project localy use the following command:
+To run this project locally use the following command:
 
 `gradle run`
 
