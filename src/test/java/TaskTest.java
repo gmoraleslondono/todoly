@@ -20,4 +20,10 @@ public class TaskTest {
         Task task = new Task();
         assertTrue("task should have a status", task.getStatus() instanceof Boolean);
     }
+
+    @Test
+    public void testTaskHasProject() {
+        Task task = new Task();
+        assertTrue("task should have a project", task.getProject() instanceof String);
+    }
 }

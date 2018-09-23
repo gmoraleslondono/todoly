@@ -12,4 +12,8 @@ public class Task {
 	public Boolean getStatus() {
 		return true;
 	}
+
+	public String getProject() {
+		return "Hello world.";
+	}
 }
