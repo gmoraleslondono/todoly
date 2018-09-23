@@ -14,4 +14,10 @@ public class TaskTest {
         Task task = new Task();
         assertTrue("task should have a due date", task.getDueDate() instanceof LocalDate);
     }
+
+    @Test
+    public void testTaskHasStatus() {
+        Task task = new Task();
+        assertTrue("task should have a status", task.getStatus() instanceof Boolean);
+    }
 }

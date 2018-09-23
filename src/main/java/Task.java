@@ -7,5 +7,9 @@ public class Task {
 
 	public LocalDate getDueDate() {
 		return LocalDate.now();
+    }
+    
+	public Boolean getStatus() {
+		return true;
 	}
 }
