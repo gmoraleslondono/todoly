@@ -4,26 +4,15 @@ import java.time.LocalDate;
 
 public class TaskTest {
     @Test
-    public void testTaskHasTitle() {
-        Task task = new Task();
-        assertTrue("task should have a title", task.getTitle() instanceof String);
-    }
-
-    @Test
-    public void testTaskHasDueDate() {
-        Task task = new Task();
-        assertTrue("task should have a due date", task.getDueDate() instanceof LocalDate);
-    }
-
-    @Test
-    public void testTaskHasStatus() {
-        Task task = new Task();
-        assertTrue("task should have a status", task.getStatus() instanceof Boolean);
-    }
-
-    @Test
-    public void testTaskHasProject() {
-        Task task = new Task();
-        assertTrue("task should have a project", task.getProject() instanceof String);
+    public void testTaskHasTitleDueDateStatusAndProject() {
+        String title = "title";
+        LocalDate dueDate = LocalDate.now();
+        Boolean status = true;
+        String tomas = "project";
+        Task task = new Task(title, dueDate, status, tomas);
+        assertEquals("task should have a title", title, task.getTitle());
+        assertEquals("task should have a due date", dueDate, task.getDueDate());
+        assertEquals("task should have a status", status, task.getStatus());
+        assertEquals("task should have a project", tomas, task.getProject());
     }
 }
