@@ -3,24 +3,25 @@ import java.util.Collections;
 import java.util.List;
 
 /**
-* TaskList stores the list and details of task.
-*
-* @author Gloria Morales
-* @version 2018.10.01
-*/
+ * TaskList stores the list and details of task.
+ *
+ * @author Gloria Morales
+ * @version 2018.10.01
+ */
 public class TaskList {
 
     private List<Task> listOfTasks;
 
     /**
-    * Create a list for objects of class TaskList.
-    */
+     * Create a list for objects of class TaskList.
+     */
     public TaskList() {
         listOfTasks = new ArrayList<Task>();
     }
 
     /**
      * Add a new task item to the task list.
+     *
      * @param task The new task.
      */
     public void addTask(Task task) {
@@ -29,6 +30,7 @@ public class TaskList {
 
     /**
      * Edit a task item in the task list.
+     *
      * @param task The task to edit.
      */
     public void editTask(Task task) {
@@ -38,6 +40,7 @@ public class TaskList {
 
     /**
      * Remove a task item from the task list.
+     *
      * @param task The task to remove.
      */
     public void removeTask(Task task) {
@@ -46,6 +49,7 @@ public class TaskList {
 
     /**
      * Set as done a task in the task list.
+     *
      * @param task The task to set as done.
      */
     public void setAsDone(Task task) {
@@ -55,6 +59,7 @@ public class TaskList {
 
     /**
      * Return a list of all the tasks details in the collection.
+     *
      * @return The list of tasks.
      */
     public List<Task> getListOfTasks() {
@@ -63,6 +68,7 @@ public class TaskList {
 
     /**
      * Return the number of tasks in the collection.
+     *
      * @return The size of list of tasks.
      */
     public int getSize() {
