@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -68,4 +69,10 @@ public class TaskList {
         return listOfTasks.size();
     }
 
+    /**
+     * Sort the tasks list by due date.
+     */
+    public void sortTaskListByDueDate() {
+        Collections.sort(listOfTasks);
+    }
 }
