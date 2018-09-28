@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.List;
+
 /**
 * TaskList stores the list and details of task.
 *
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 */
 public class TaskList {
 
-    private ArrayList<Task> listOfTasks;
+    private List<Task> listOfTasks;
 
     /**
     * Create a list for objects of class TaskList.
@@ -54,7 +56,7 @@ public class TaskList {
      * Return a list of all the tasks details in the collection.
      * @return The list of tasks.
      */
-    public ArrayList<Task> getListOfTasks() {
+    public List<Task> getListOfTasks() {
         return listOfTasks;
     }
 
