@@ -75,4 +75,22 @@ public class TaskList {
     public void sortTaskListByDueDate() {
         Collections.sort(listOfTasks);
     }
+
+    /**
+     * Filter the tasks list by project.
+     *
+     * @param project The project to filter.
+     * @return a new list of task filter by project.
+     */
+    public List<Task> filterTaskListByProject(String project) {
+        List<Task> tasksByFilter = new ArrayList<>();
+        for (Task task : listOfTasks) {
+            if (task.getProject().equals(project)) {
+                tasksByFilter.add(task);
+            }
+        }
+        Collections.sort(tasksByFilter);
+        return tasksByFilter;
+
+    }
 }
