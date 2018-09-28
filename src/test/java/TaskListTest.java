@@ -20,12 +20,13 @@ public class TaskListTest {
     public void testTaskListRemove() {
         // Arrage
         TaskList taskList = new TaskList();
-        Task task = new Task();
+        Task task = new Task(null, null, null, null);
+        taskList.addTask(task);
 
         // Act
-        taskList.removeTask(0);
+        taskList.removeTask(task);
 
         // Assert
         assertEquals("test task list remove a task", 0, taskList.getSize());
-    }*/
+    }
 }
