@@ -16,19 +16,6 @@ public class TaskListTest {
         assertEquals("test task list add a task", 1, taskList.getSize());
     }
 
-   /* @Test
-    public void testTaskListEdit() {
-        // Arrage
-        TaskList taskList = new TaskList();
-        Task task = new Task();
-
-        // Act
-        taskList.editTask(task);
-
-        // Assert
-        assertEquals("test task list edit a task", task2, taskList.getDetails());
-    }
-
     @Test
     public void testTaskListRemove() {
         // Arrage
