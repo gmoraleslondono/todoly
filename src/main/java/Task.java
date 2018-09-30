@@ -40,7 +40,7 @@ public class Task implements Comparable<Task> {
     }
 
     /**
-     * Return the due date..
+     * Return the due date.
      *
      * @return The dueDate.
      */
@@ -112,7 +112,7 @@ public class Task implements Comparable<Task> {
     }
 
     /**
-     * Return -1,0 or 1 depens of the result of the comparition.
+     * Return -1,0 or 1 depens of the result of the comparation.
      *
      * @return An integer -1, 0 or 1.
      */

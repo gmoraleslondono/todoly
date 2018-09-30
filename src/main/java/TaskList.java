@@ -78,8 +78,9 @@ public class TaskList {
     /**
      * Sort the tasks list by due date.
      */
-    public void sortTaskListByDueDate() {
+    public List<Task> getTaskListSortedByDueDate() {
         Collections.sort(listOfTasks);
+        return listOfTasks;
     }
 
     /**
@@ -98,5 +99,13 @@ public class TaskList {
         Collections.sort(tasksByFilter);
         return tasksByFilter;
 
+    }
+
+    public List<String> getProjects() {
+        List<String> projects = new ArrayList<>();
+        for (Task p : listOfTasks) {
+            projects.add(p.getProject());
+        }
+        return projects;
     }
 }
