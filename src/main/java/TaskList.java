@@ -77,6 +77,8 @@ public class TaskList {
 
     /**
      * Sort the tasks list by due date.
+     *
+     * @return listOfTasks The list of tasks sorted by due date.
      */
     public List<Task> getTaskListSortedByDueDate() {
         Collections.sort(listOfTasks);
@@ -110,8 +112,8 @@ public class TaskList {
         List<String> projects = new ArrayList<>();
         for (Task p : listOfTasks) {
             if (!projects.contains(p.getProject())) {
-            projects.add(p.getProject());
-        }
+                projects.add(p.getProject());
+            }
         }
         return projects;
     }

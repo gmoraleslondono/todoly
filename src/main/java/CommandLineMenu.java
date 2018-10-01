@@ -68,7 +68,8 @@ public class CommandLineMenu {
     }
 
     /**
-     *
+     * Print a list of options to show an ordered list of tasks by due date or
+     * filtered by project.
      */
     private void showTaskList() {
         int option = 0;
@@ -99,6 +100,9 @@ public class CommandLineMenu {
         }
     }
 
+    /**
+     * Show task list sorted by due date.
+     */
     private void showTaskListByDueDate() {
         List<Task> taskListSortedByDueDate = taskList.getTaskListSortedByDueDate();
         for (Task t : taskListSortedByDueDate) {
@@ -107,7 +111,8 @@ public class CommandLineMenu {
     }
 
     /**
-     *
+     * Print a list of projects to select and give details about the tasks belog to
+     * the project selected.
      */
     private void selectProject() {
         List<String> projects = taskList.getProjects();
@@ -138,7 +143,7 @@ public class CommandLineMenu {
     }
 
     /**
-     *
+     * Add a new task to the list.
      */
     private void addNewTask() {
         System.out.println("Add title");
