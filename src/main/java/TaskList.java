@@ -101,10 +101,17 @@ public class TaskList {
 
     }
 
+    /**
+     * Return a list of projects.
+     *
+     * @return projects The list of projects.
+     */
     public List<String> getProjects() {
         List<String> projects = new ArrayList<>();
         for (Task p : listOfTasks) {
+            if (!projects.contains(p.getProject())) {
             projects.add(p.getProject());
+        }
         }
         return projects;
     }
