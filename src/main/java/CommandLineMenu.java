@@ -55,7 +55,7 @@ public class CommandLineMenu {
                 this.addNewTask();
                 break;
             case 3:
-                this.editTaskList();
+                this.pickTaskToEdit();
                 break;
             case 4:
                 this.SaveQuitTaskList();
@@ -161,8 +161,65 @@ public class CommandLineMenu {
     /**
      *
      */
-    private void editTaskList() {
-        System.out.println("edit task");
+    private void pickTaskToEdit() {
+        List<Task> tasks = taskList.getListOfTasks();
+        int option = 0;
+
+        while (true) {
+            System.out.println(">> Pick task:");
+
+            for (int i = 0; i < tasks.size(); i++) {
+                Task task = tasks.get(i);
+                System.out.println(">> (" + (i + 1) + ") " + task.getDetails());
+            }
+            System.out.println(">>");
+
+            option = scanner.nextInt();
+
+            if (option <= tasks.size()) {
+                Task selectedTask = tasks.get(option);
+                chooseWhatToEdit(selectedTask);
+                break;
+            } else {
+                System.out.println("Introduce a valid value.");
+            }
+        }
+    }
+
+    /**
+     *
+     * @param selectedTask
+     */
+    private void chooseWhatToEdit(Task selectedTask) {
+        int option = 0;
+        while (option != 4) {
+            System.out.println(">> Pick option:");
+            System.out.println(">> (1) Update (Title, Due date or Project)");
+            System.out.println(">> (2) Mark as done");
+            System.out.println(">> (3) Remove task");
+            System.out.println(">> (4) Back to home");
+            System.out.println(">>");
+
+            option = scanner.nextInt();
+
+            switch (option) {
+            case 1:
+                System.out.println("Update task");
+                break;
+            case 2:
+                System.out.println("Mark as done");
+                break;
+            case 3:
+                System.out.println("Remove task");
+                break;
+            case 4:
+                displayMenu();
+                break;
+            default:
+                System.out.println("Introduce a valid value.");
+                break;
+            }
+        }
     }
 
     /**
