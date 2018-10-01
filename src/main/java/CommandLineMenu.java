@@ -33,8 +33,12 @@ public class CommandLineMenu {
         int option = 0;
 
         while (option != 4) {
+            int numberOfTasks = taskList.getSize();
+            int numberOfTasksDone = taskList.getNumberOfTasksDone();
+
             System.out.println(">> Welcome to ToDoLy.");
-            System.out.println(">> you have " + taskList.getSize() + " tasks todo and y tasks are done!");
+            System.out.println(
+                    ">> you have " + numberOfTasks + " tasks todo and " + numberOfTasksDone + " tasks are done!");
             System.out.println(">> Pick an option:");
             System.out.println(">> (1) Show Task List (By date or project)");
             System.out.println(">> (2) Add New Task.");
