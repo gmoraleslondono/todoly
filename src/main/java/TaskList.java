@@ -115,4 +115,19 @@ public class TaskList {
         }
         return projects;
     }
+
+    /**
+     * Return the number of tasks mark as done.
+     *
+     * @return numberOfTasksDone The number of tasks done.
+     */
+    public int getNumberOfTasksDone() {
+        int numberOfTasksDone = 0;
+        for (Task t : listOfTasks) {
+            if (t.getStatus().equals(true)) {
+                numberOfTasksDone++;
+            }
+        }
+        return numberOfTasksDone;
+    }
 }
