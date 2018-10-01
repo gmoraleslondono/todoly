@@ -78,7 +78,7 @@ public class CommandLineMenu {
             System.out.println(">> Pick an option:");
             System.out.println(">> (1) Show Task List By due date.");
             System.out.println(">> (2) Filter Task List By project.");
-            System.out.println(">> (3) Exit");
+            System.out.println(">> (3) Back to home.");
             System.out.println(">>");
 
             option = scanner.nextInt();
