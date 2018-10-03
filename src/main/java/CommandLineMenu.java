@@ -26,8 +26,7 @@ public class CommandLineMenu {
     }
 
     /**
-     * Print a welcome message to the screen and give a list the option to select
-     * and return one response.
+     * Print a welcome message to the screen and give a list the option.
      */
     private void displayMenu() {
         int option = 0;
@@ -36,6 +35,7 @@ public class CommandLineMenu {
             int numberOfTasks = taskList.getSize();
             int numberOfTasksDone = taskList.getNumberOfTasksDone();
 
+            System.out.println();
             System.out.println(">> Welcome to ToDoLy.");
             System.out.println(
                     ">> you have " + numberOfTasks + " tasks todo and " + numberOfTasksDone + " tasks are done!");
@@ -45,6 +45,7 @@ public class CommandLineMenu {
             System.out.println(">> (3) Edit Task (update, mark as done, remove)");
             System.out.println(">> (4) Save and Quit.");
             System.out.println(">>");
+
             option = scanner.nextInt();
 
             switch (option) {
@@ -58,7 +59,7 @@ public class CommandLineMenu {
                 this.pickTaskToEdit();
                 break;
             case 4:
-                this.SaveQuitTaskList();
+                this.saveQuitTaskList();
                 break;
             default:
                 System.out.println("Introduce a valid value.");
@@ -75,6 +76,7 @@ public class CommandLineMenu {
         int option = 0;
 
         while (option != 3) {
+            System.out.println();
             System.out.println(">> Pick an option:");
             System.out.println(">> (1) Show Task List By due date.");
             System.out.println(">> (2) Filter Task List By project.");
@@ -86,9 +88,11 @@ public class CommandLineMenu {
             switch (option) {
             case 1:
                 showTaskListByDueDate();
+                displayMenu();
                 break;
             case 2:
                 selectProject();
+                displayMenu();
                 break;
             case 3:
                 displayMenu();
@@ -104,22 +108,24 @@ public class CommandLineMenu {
      * Show task list sorted by due date.
      */
     private void showTaskListByDueDate() {
+        System.out.println();
         List<Task> taskListSortedByDueDate = taskList.getTaskListSortedByDueDate();
         for (Task t : taskListSortedByDueDate) {
-            System.out.println(t.getDetails());
+            System.out.println(t);
         }
     }
 
     /**
-     * Print a list of projects to select and give details about the tasks belog to
+     * Print a numbered list of projects and give details about the tasks belog to
      * the project selected.
      */
-    private void selectProject() {
+    public void selectProject() {
         List<String> projects = taskList.getProjects();
         String selectedProject;
         int option = 0;
 
         while (true) {
+            System.out.println();
             System.out.println(">> Pick project:");
 
             for (int i = 0; i < projects.size(); i++) {
@@ -133,7 +139,7 @@ public class CommandLineMenu {
                 selectedProject = projects.get(option - 1);
                 List<Task> taskselected = taskList.filterTaskListByProject(selectedProject);
                 for (Task t : taskselected) {
-                    System.out.println(t.getDetails());
+                    System.out.println(t);
                 }
                 break;
             } else {
@@ -145,44 +151,57 @@ public class CommandLineMenu {
     /**
      * Add a new task to the list.
      */
-    private void addNewTask() {
-        System.out.println("Add title");
-        String title = scanner.next();
+    public void addNewTask() {
+        scanner.nextLine();
+        System.out.println();
+        System.out.print("Add title: ");
+        String title = scanner.nextLine();
 
-        System.out.println("Add due date [yyyy-mm-dd]");
-        String dueDateStr = scanner.next();
+        boolean invalidDate = true;
+        LocalDate localDate = null;
+
+        while (invalidDate) {
+            System.out.print("Add due date [yyyy-mm-dd]: ");
+            String dueDateStr = scanner.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate localDate = LocalDate.parse(dueDateStr, formatter);
+            try {
+                localDate = LocalDate.parse(dueDateStr, formatter);
+                invalidDate = false;
+            } catch (Exception e) {
+                System.out.println("Introduce a valid date.");
+            }
+        }
 
         Boolean status = false;
 
-        System.out.println("Add project");
-        String project = scanner.next();
+        System.out.print("Add project: ");
+        String project = scanner.nextLine();
 
         Task newTask = new Task(title, localDate, status, project);
         taskList.addTask(newTask);
     }
 
     /**
-     *
+     * Print a numbered list of task.
      */
-    private void pickTaskToEdit() {
+    public void pickTaskToEdit() {
         List<Task> tasks = taskList.getListOfTasks();
         int option = 0;
 
         while (true) {
+            System.out.println();
             System.out.println(">> Pick task:");
 
             for (int i = 0; i < tasks.size(); i++) {
                 Task task = tasks.get(i);
-                System.out.println(">> (" + (i + 1) + ") " + task.getDetails());
+                System.out.println(">> (" + (i + 1) + ") " + task.toString());
             }
             System.out.println(">>");
 
             option = scanner.nextInt();
 
-            if (option <= tasks.size()) {
-                Task selectedTask = tasks.get(option);
+            if (option > 0 && option <= tasks.size()) {
+                Task selectedTask = tasks.get(option - 1);
                 chooseWhatToEdit(selectedTask);
                 break;
             } else {
@@ -192,12 +211,14 @@ public class CommandLineMenu {
     }
 
     /**
+     * Print a list of options to edit a task.
      *
-     * @param selectedTask
+     * @param selectedTask The task to edit.
      */
     private void chooseWhatToEdit(Task selectedTask) {
         int option = 0;
         while (option != 4) {
+            System.out.println();
             System.out.println(">> Pick option:");
             System.out.println(">> (1) Update (Title, Due date or Project)");
             System.out.println(">> (2) Mark as done");
@@ -210,12 +231,15 @@ public class CommandLineMenu {
             switch (option) {
             case 1:
                 updateTask(selectedTask);
+                displayMenu();
                 break;
             case 2:
-                System.out.println("Mark as done");
+                markAsDone(selectedTask);
+                displayMenu();
                 break;
             case 3:
-                System.out.println("Remove task");
+                eliminateTask(selectedTask);
+                displayMenu();
                 break;
             case 4:
                 displayMenu();
@@ -227,26 +251,48 @@ public class CommandLineMenu {
         }
     }
 
+    /**
+     * Update a task
+     *
+     * @param selectedTask The task to update.
+     */
     public void updateTask(Task selectedTask) {
-        System.out.println("Add title");
-        String newTitle = scanner.next();
+        scanner.nextLine();
+        System.out.println();
+        System.out.print("Add new title: ");
+        String newTitle = scanner.nextLine();
         selectedTask.setTitle(newTitle);
 
-        System.out.println("Add due date [yyyy-mm-dd]");
-        String dueDateStr = scanner.next();
+        System.out.print("Add new due date [yyyy-mm-dd]: ");
+        String dueDateStr = scanner.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate newDueDate = LocalDate.parse(dueDateStr, formatter);
         selectedTask.setDueDate(newDueDate);
 
-        System.out.println("Add project");
-        String newProject = scanner.next();
+        System.out.print("Add new project: ");
+        String newProject = scanner.nextLine();
         selectedTask.setProject(newProject);
     }
 
     /**
      *
+     * @param selectedTask
      */
-    private void SaveQuitTaskList() {
+    private void markAsDone(Task selectedTask) {
+        taskList.setAsDone(selectedTask);
+    }
+
+    /**
+     *
+     * @param selectedTask
+     */
+    private void eliminateTask(Task selectedTask) {
+        taskList.removeTask(selectedTask);
+    }
+
+    public void saveQuitTaskList() {
+        System.out.println();
         System.out.println("Save and Quit");
+        System.exit(0);
     }
 }
