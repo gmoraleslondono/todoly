@@ -33,7 +33,7 @@ public class TaskList {
      *
      * @param task The task to edit.
      */
-    public void editTask(Task task) {
+    public void updateTask(Task task) {
         // 1. remove old task
         // 2. add new task
     }
@@ -54,7 +54,7 @@ public class TaskList {
      */
     public void setAsDone(Task task) {
         task.setStatus(true);
-        this.editTask(task);
+        this.updateTask(task);
     }
 
     /**
