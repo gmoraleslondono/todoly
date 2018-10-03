@@ -79,7 +79,7 @@ public class Task implements Comparable<Task> {
             statusToString = "TODO";
         } else {
             statusToString = "DONE";
-    }
+        }
 
         return dueDate + " " + statusToString + " " + project + "\t" + title;
     }
@@ -127,20 +127,5 @@ public class Task implements Comparable<Task> {
      */
     public int compareTo(Task task) {
         return dueDate.compareTo(task.getDueDate());
-    }
-
-    /**
-     * Set task's details .
-     *
-     * @param title   The title of the task.
-     * @param dueDate The due date of the task.
-     * @param status  The status of the task.
-     * @param project The project of the task.
-     */
-    public void setDetails(String title, LocalDate dueDate, Boolean status, String project) {
-        this.title = title;
-        this.dueDate = dueDate;
-        this.status = status;
-        this.project = project;
     }
 }
