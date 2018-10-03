@@ -209,7 +209,7 @@ public class CommandLineMenu {
 
             switch (option) {
             case 1:
-                System.out.println("Update task");
+                updateTask(selectedTask);
                 break;
             case 2:
                 System.out.println("Mark as done");
@@ -225,6 +225,22 @@ public class CommandLineMenu {
                 break;
             }
         }
+    }
+
+    public void updateTask(Task selectedTask) {
+        System.out.println("Add title");
+        String newTitle = scanner.next();
+        selectedTask.setTitle(newTitle);
+
+        System.out.println("Add due date [yyyy-mm-dd]");
+        String dueDateStr = scanner.next();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate newDueDate = LocalDate.parse(dueDateStr, formatter);
+        selectedTask.setDueDate(newDueDate);
+
+        System.out.println("Add project");
+        String newProject = scanner.next();
+        selectedTask.setProject(newProject);
     }
 
     /**
