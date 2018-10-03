@@ -71,8 +71,17 @@ public class Task implements Comparable<Task> {
      *
      * @return The task's details.
      */
-    public String getDetails() {
-        return title + " " + dueDate + " " + status + " " + project;
+    public String toString() {
+
+        String statusToString;
+
+        if (status == false) {
+            statusToString = "TODO";
+        } else {
+            statusToString = "DONE";
+    }
+
+        return dueDate + " " + statusToString + " " + project + "\t" + title;
     }
 
     /**
