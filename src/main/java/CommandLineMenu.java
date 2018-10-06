@@ -46,7 +46,10 @@ public class CommandLineMenu {
             System.out.println(">> (4) Save and Quit.");
             System.out.println(">>");
 
-            option = scanner.nextInt();
+            try {
+                option = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+            }
 
             switch (option) {
             case 1:
@@ -83,7 +86,10 @@ public class CommandLineMenu {
             System.out.println(">> (3) Back to home.");
             System.out.println(">>");
 
-            option = scanner.nextInt();
+            try {
+                option = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+            }
 
             switch (option) {
             case 1:
@@ -133,9 +139,12 @@ public class CommandLineMenu {
             }
             System.out.println(">>");
 
-            option = scanner.nextInt();
+            try {
+                option = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+            }
 
-            if (option <= projects.size()) {
+            if (option > 0 && option <= projects.size()) {
                 selectedProject = projects.get(option - 1);
                 List<Task> taskselected = taskList.filterTaskListByProject(selectedProject);
                 for (Task t : taskselected) {
@@ -198,7 +207,10 @@ public class CommandLineMenu {
             }
             System.out.println(">>");
 
-            option = scanner.nextInt();
+            try {
+                option = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+            }
 
             if (option > 0 && option <= tasks.size()) {
                 Task selectedTask = tasks.get(option - 1);
@@ -226,7 +238,10 @@ public class CommandLineMenu {
             System.out.println(">> (4) Back to home");
             System.out.println(">>");
 
-            option = scanner.nextInt();
+            try {
+                option = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+            }
 
             switch (option) {
             case 1:
