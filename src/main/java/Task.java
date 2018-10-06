@@ -81,7 +81,7 @@ public class Task implements Comparable<Task> {
             statusToString = "DONE";
         }
 
-        return dueDate + " " + statusToString + " " + project + "\t" + title;
+        return dueDate + "\t" + statusToString + "\t" + project + "\t" + title;
     }
 
     /**
