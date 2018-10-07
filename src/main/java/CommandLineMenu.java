@@ -161,7 +161,6 @@ public class CommandLineMenu {
      * Add a new task to the list.
      */
     public void addNewTask() {
-        scanner.nextLine();
         System.out.println();
         System.out.print("Add title: ");
         String title = scanner.nextLine();
@@ -272,7 +271,6 @@ public class CommandLineMenu {
      * @param selectedTask The task to update.
      */
     public void updateTask(Task selectedTask) {
-        scanner.nextLine();
         System.out.println();
         System.out.print("Add new title: ");
         String newTitle = scanner.nextLine();
