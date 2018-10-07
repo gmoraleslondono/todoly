@@ -272,17 +272,22 @@ public class CommandLineMenu {
      */
     public void updateTask(Task selectedTask) {
         System.out.println();
-        System.out.println("Current value: " + selectedTask.getTitle());
-        System.out.print("Add new title: ");
+        System.out.println("Current title: " + selectedTask.getTitle());
+        System.out.print("Add new title (Press Enter to skip): ");
         String newTitle = scanner.nextLine();
+        if (!newTitle.isEmpty()) {
         selectedTask.setTitle(newTitle);
+        }
 
         boolean invalidDate = true;
 
         while (invalidDate) {
-            System.out.println("Current value: " + selectedTask.getDueDate());
-        System.out.print("Add new due date [yyyy-mm-dd]: ");
+            System.out.println("Current due date: " + selectedTask.getDueDate());
+            System.out.print("Add new due date [yyyy-mm-dd] (Press Enter to skip): ");
         String dueDateStr = scanner.nextLine();
+            if (dueDateStr.isEmpty()) {
+                break;
+            }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             try {
         LocalDate newDueDate = LocalDate.parse(dueDateStr, formatter);
@@ -293,10 +298,12 @@ public class CommandLineMenu {
             }
         }
 
-        System.out.println("Current value: " + selectedTask.getProject());
-        System.out.print("Add new project: ");
+        System.out.println("Current project: " + selectedTask.getProject());
+        System.out.print("Add new project (Press Enter to skip): ");
         String newProject = scanner.nextLine();
+        if (!newProject.isEmpty()) {
         selectedTask.setProject(newProject);
+    }
     }
 
     /**
