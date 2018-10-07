@@ -199,7 +199,7 @@ public class CommandLineMenu {
 
         while (true) {
             System.out.println();
-            System.out.println(">> Pick task:");
+            System.out.println(">> Pick task to edit:");
 
             for (int i = 0; i < tasks.size(); i++) {
                 Task task = tasks.get(i);
