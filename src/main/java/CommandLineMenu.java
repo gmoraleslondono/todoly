@@ -53,12 +53,20 @@ public class CommandLineMenu {
 
             switch (option) {
             case 1:
+                if (taskList.isEmpty()) {
+                    System.out.println("No tasks to show.");
+                    break;
+                }
                 this.showTaskList();
                 break;
             case 2:
                 this.addNewTask();
                 break;
             case 3:
+                if (taskList.isEmpty()) {
+                    System.out.println("No tasks to edit.");
+                    break;
+                }
                 this.pickTaskToEdit();
                 break;
             case 4:

@@ -132,4 +132,8 @@ public class TaskList {
         }
         return numberOfTasksDone;
     }
+
+    public boolean isEmpty() {
+        return getSize() == 0;
+    }
 }
