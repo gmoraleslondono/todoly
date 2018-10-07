@@ -272,6 +272,7 @@ public class CommandLineMenu {
      */
     public void updateTask(Task selectedTask) {
         System.out.println();
+        System.out.println("Current value: " + selectedTask.getTitle());
         System.out.print("Add new title: ");
         String newTitle = scanner.nextLine();
         selectedTask.setTitle(newTitle);
@@ -279,6 +280,7 @@ public class CommandLineMenu {
         boolean invalidDate = true;
 
         while (invalidDate) {
+            System.out.println("Current value: " + selectedTask.getDueDate());
         System.out.print("Add new due date [yyyy-mm-dd]: ");
         String dueDateStr = scanner.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -291,6 +293,7 @@ public class CommandLineMenu {
             }
         }
 
+        System.out.println("Current value: " + selectedTask.getProject());
         System.out.print("Add new project: ");
         String newProject = scanner.nextLine();
         selectedTask.setProject(newProject);
