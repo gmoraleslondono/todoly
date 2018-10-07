@@ -11,3 +11,19 @@ To run this project locally use the following command:
 To run the tests use the following command:
 
 `gradle test`
+
+## Build
+
+To build the binary that runs the standalone version of ToDoly use the following command:
+
+`gradle assemble`
+
+You will find the ZIP file that contains the binary in this folder `todoly/build/distributions/`
+
+## Class diagram
+
+![class diagram](./classDiagramToDoly.jpg)
+
+## Credits
+
+Made by Gloria Morales
