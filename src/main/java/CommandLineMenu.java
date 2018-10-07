@@ -278,11 +278,20 @@ public class CommandLineMenu {
         String newTitle = scanner.nextLine();
         selectedTask.setTitle(newTitle);
 
+        boolean invalidDate = true;
+
+        while (invalidDate) {
         System.out.print("Add new due date [yyyy-mm-dd]: ");
         String dueDateStr = scanner.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            try {
         LocalDate newDueDate = LocalDate.parse(dueDateStr, formatter);
         selectedTask.setDueDate(newDueDate);
+                invalidDate = false;
+            } catch (Exception e) {
+                System.out.println("Introduce a valid date.");
+            }
+        }
 
         System.out.print("Add new project: ");
         String newProject = scanner.nextLine();
