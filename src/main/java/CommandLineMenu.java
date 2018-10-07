@@ -62,7 +62,7 @@ public class CommandLineMenu {
                 this.pickTaskToEdit();
                 break;
             case 4:
-                this.saveQuitTaskList();
+                this.saveAndQuit();
                 break;
             default:
                 System.out.println("Introduce a valid value.");
@@ -305,7 +305,7 @@ public class CommandLineMenu {
         taskList.removeTask(selectedTask);
     }
 
-    public void saveQuitTaskList() {
+    public void saveAndQuit() {
         System.out.println();
         System.out.println("Save and Quit");
         System.exit(0);
