@@ -133,7 +133,7 @@ public class CommandLineMenu {
      * Print a numbered list of projects and give details about the tasks belog to
      * the project selected.
      */
-    public void selectProject() {
+    private void selectProject() {
         List<String> projects = taskList.getProjects();
         String selectedProject;
         int option = 0;
@@ -168,7 +168,7 @@ public class CommandLineMenu {
     /**
      * Add a new task to the list.
      */
-    public void addNewTask() {
+    private void addNewTask() {
         System.out.println();
         System.out.print("Add title: ");
         String title = scanner.nextLine();
@@ -200,7 +200,7 @@ public class CommandLineMenu {
     /**
      * Print a numbered list of task.
      */
-    public void pickTaskToEdit() {
+    private void pickTaskToEdit() {
         List<Task> tasks = taskList.getListOfTasks();
         int option = 0;
 
@@ -274,11 +274,11 @@ public class CommandLineMenu {
     }
 
     /**
-     * Update a task
+     * Update the tasks title, due date and project.
      *
      * @param selectedTask The task to update.
      */
-    public void updateTask(Task selectedTask) {
+    private void updateTask(Task selectedTask) {
         System.out.println();
         System.out.println("Current title: " + selectedTask.getTitle());
         System.out.print("Add new title (Press Enter to skip): ");
@@ -315,22 +315,27 @@ public class CommandLineMenu {
     }
 
     /**
+     * Set as done a task in the task list.
      *
-     * @param selectedTask
+     * @param selectedTask The task to set as done.
      */
     private void markAsDone(Task selectedTask) {
         taskList.setAsDone(selectedTask);
     }
 
     /**
+     * Remove a task from the list.
      *
-     * @param selectedTask
+     * @param selectedTask The task to eliminate.
      */
     private void eliminateTask(Task selectedTask) {
         taskList.removeTask(selectedTask);
     }
 
-    public void saveAndQuit() {
+    /**
+     * Save the information and close the program.
+     */
+    private void saveAndQuit() {
         System.out.println();
         System.out.println("Save and Quit");
         scanner.close();
