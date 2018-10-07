@@ -308,6 +308,7 @@ public class CommandLineMenu {
     public void saveAndQuit() {
         System.out.println();
         System.out.println("Save and Quit");
+        scanner.close();
         System.exit(0);
     }
 }
