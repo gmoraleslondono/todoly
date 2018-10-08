@@ -22,4 +22,4 @@ You will find the ZIP file that contains the binary in this folder `todoly/build
 
 ## Credits
 
-Made by Gloria Morales
+Made with ❤ by Gloria Morales
