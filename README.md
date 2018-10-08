@@ -20,10 +20,6 @@ To build the binary that runs the standalone version of ToDoly use the following
 
 You will find the ZIP file that contains the binary in this folder `todoly/build/distributions/`
 
-## Class diagram
-
-![class diagram](./classDiagramToDoly.jpg)
-
 ## Credits
 
-Made by Gloria Morales
+Made with ❤ by Gloria Morales
