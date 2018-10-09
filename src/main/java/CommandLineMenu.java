@@ -21,7 +21,7 @@ public class CommandLineMenu {
      */
     public CommandLineMenu() {
         scanner = new Scanner(System.in);
-        taskList = new TaskList();
+        taskList = ReadFromFile.read();
         this.displayMenu();
     }
 
@@ -179,7 +179,7 @@ public class CommandLineMenu {
         while (invalidDate) {
             System.out.print("Add due date [yyyy-mm-dd]: ");
             String dueDateStr = scanner.nextLine();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             try {
                 localDate = LocalDate.parse(dueDateStr, formatter);
                 invalidDate = false;
@@ -284,7 +284,7 @@ public class CommandLineMenu {
         System.out.print("Add new title (Press Enter to skip): ");
         String newTitle = scanner.nextLine();
         if (!newTitle.isEmpty()) {
-        selectedTask.setTitle(newTitle);
+            selectedTask.setTitle(newTitle);
         }
 
         boolean invalidDate = true;
@@ -292,14 +292,14 @@ public class CommandLineMenu {
         while (invalidDate) {
             System.out.println("Current due date: " + selectedTask.getDueDate());
             System.out.print("Add new due date [yyyy-mm-dd] (Press Enter to skip): ");
-        String dueDateStr = scanner.nextLine();
+            String dueDateStr = scanner.nextLine();
             if (dueDateStr.isEmpty()) {
                 break;
             }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             try {
-        LocalDate newDueDate = LocalDate.parse(dueDateStr, formatter);
-        selectedTask.setDueDate(newDueDate);
+                LocalDate newDueDate = LocalDate.parse(dueDateStr, formatter);
+                selectedTask.setDueDate(newDueDate);
                 invalidDate = false;
             } catch (Exception e) {
                 System.out.println("Introduce a valid date.");
@@ -310,8 +310,8 @@ public class CommandLineMenu {
         System.out.print("Add new project (Press Enter to skip): ");
         String newProject = scanner.nextLine();
         if (!newProject.isEmpty()) {
-        selectedTask.setProject(newProject);
-    }
+            selectedTask.setProject(newProject);
+        }
     }
 
     /**
@@ -336,9 +336,10 @@ public class CommandLineMenu {
      * Save the information and close the program.
      */
     private void saveAndQuit() {
-        System.out.println();
-        System.out.println("Save and Quit");
+        WriteToFile.write(taskList);
         scanner.close();
+
+        System.out.println();
         System.exit(0);
     }
 }
