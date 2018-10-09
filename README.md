@@ -16,7 +16,7 @@ To run the tests use the following command:
 
 To build the binary that runs the standalone version of ToDoly use the following command:
 
-`gradle assemble`
+`gradle build`
 
 You will find the ZIP file that contains the binary in this folder `todoly/build/distributions/`
 
