@@ -336,9 +336,10 @@ public class CommandLineMenu {
      * Save the information and close the program.
      */
     private void saveAndQuit() {
-        System.out.println();
-        System.out.println("Save and Quit");
+        WriteToFile.write(taskList);
         scanner.close();
+
+        System.out.println();
         System.exit(0);
     }
 }
