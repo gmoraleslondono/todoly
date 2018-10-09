@@ -10,6 +10,12 @@
 | ![use-cases](./diagrams/use-cases/create-a-task.svg) |
 | ![use-cases](./diagrams/use-cases/edit-a-task.svg) |
 
+| Activity diagram |
+| :---: |
+| ![activity-diagram](./diagrams/activity-diagram/show-task.svg) |
+| ![activity-diagram](./diagrams/activity-diagram/add-task.svg)  |
+| ![activity-diagram](./diagrams/activity-diagram/edit-task.svg) |
+
 ## Credits
 
 Made with ❤ by Gloria Morales
