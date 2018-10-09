@@ -21,7 +21,7 @@ public class CommandLineMenu {
      */
     public CommandLineMenu() {
         scanner = new Scanner(System.in);
-        taskList = new TaskList();
+        taskList = ReadFromFile.read();
         this.displayMenu();
     }
 
