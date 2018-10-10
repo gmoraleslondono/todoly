@@ -3,10 +3,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * TaskList stores the list and details of task.
+ * The TaskList class stores a list of task. Details are store such as
+ * dynamically sized collection of elements.
  *
  * @author Gloria Morales
- * @version 2018.10.01
+ * @version 2018.10.10
+ *
  */
 public class TaskList {
 
@@ -29,16 +31,6 @@ public class TaskList {
     }
 
     /**
-     * Edit a task item in the task list.
-     *
-     * @param task The task to edit.
-     */
-    public void updateTask(Task task) {
-        // 1. remove old task
-        // 2. add new task
-    }
-
-    /**
      * Remove a task item from the task list.
      *
      * @param task The task to remove.
@@ -54,7 +46,6 @@ public class TaskList {
      */
     public void setAsDone(Task task) {
         task.setStatus(true);
-        this.updateTask(task);
     }
 
     /**
@@ -78,7 +69,7 @@ public class TaskList {
     /**
      * Sort the tasks list by due date.
      *
-     * @return listOfTasks The list of tasks sorted by due date.
+     * @return The list of tasks sorted by due date.
      */
     public List<Task> getTaskListSortedByDueDate() {
         Collections.sort(listOfTasks);
@@ -89,7 +80,7 @@ public class TaskList {
      * Filter the tasks list by project.
      *
      * @param project The project to filter.
-     * @return a new list of task filter by project.
+     * @return New list of task filter by project.
      */
     public List<Task> filterTaskListByProject(String project) {
         List<Task> tasksByFilter = new ArrayList<>();
@@ -106,7 +97,7 @@ public class TaskList {
     /**
      * Return a list of projects.
      *
-     * @return projects The list of projects.
+     * @return The list of projects.
      */
     public List<String> getProjects() {
         List<String> projects = new ArrayList<>();
@@ -121,7 +112,7 @@ public class TaskList {
     /**
      * Return the number of tasks mark as done.
      *
-     * @return numberOfTasksDone The number of tasks done.
+     * @return The number of tasks done.
      */
     public int getNumberOfTasksDone() {
         int numberOfTasksDone = 0;
@@ -133,6 +124,11 @@ public class TaskList {
         return numberOfTasksDone;
     }
 
+    /**
+     * Return a boolean to identify wether or not there are tasks in the list.
+     *
+     * @return The value true or false.
+     */
     public boolean isEmpty() {
         return getSize() == 0;
     }

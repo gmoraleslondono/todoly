@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * CommandLineMenu reads user input. It checks user input against the known
- * commands, and if the input is not one of the known commands, it returns a
- * command object that is marked as an unknown command.
+ * The commandLineMenu class reads user input. It checks user input against the
+ * known commands and execute the methods following the user selections.
  *
  * @author Gloria Morales
- * @version 2018.10.01
+ * @version 2018.10.10
+ *
  */
 public class CommandLineMenu {
 
@@ -130,8 +130,8 @@ public class CommandLineMenu {
     }
 
     /**
-     * Print a numbered list of projects and give details about the tasks belog to
-     * the project selected.
+     * Print a numbered list of projects to be select, then give details about the
+     * tasks belog to the project selected.
      */
     private void selectProject() {
         List<String> projects = taskList.getProjects();
@@ -274,7 +274,7 @@ public class CommandLineMenu {
     }
 
     /**
-     * Update the tasks title, due date and project.
+     * Update the task title, due date and project.
      *
      * @param selectedTask The task to update.
      */
@@ -326,7 +326,7 @@ public class CommandLineMenu {
     /**
      * Remove a task from the list.
      *
-     * @param selectedTask The task to eliminate.
+     * @param selectedTask The task to remove.
      */
     private void eliminateTask(Task selectedTask) {
         taskList.removeTask(selectedTask);

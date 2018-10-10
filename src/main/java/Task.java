@@ -1,11 +1,11 @@
 import java.time.LocalDate;
 
 /**
- * Task stores the details of a task, such as title, due date, status and
- * project.
+ * The Task class stores the details of a task, such as title, due date, status
+ * and project.
  *
  * @author Gloria Morales
- * @version 2018.10.01
+ * @version 2018.10.10
  *
  */
 public class Task implements Comparable<Task> {
@@ -16,7 +16,7 @@ public class Task implements Comparable<Task> {
     private String project;
 
     /**
-     * Constructor for objects of class Task.
+     * Constructor for objects of class Task. Set up the task's details.
      *
      * @param title   The task's title.
      * @param dueDate The task's due date.
@@ -31,7 +31,7 @@ public class Task implements Comparable<Task> {
     }
 
     /**
-     * Return the title.
+     * Return the task's title.
      *
      * @return The title.
      */
@@ -40,7 +40,7 @@ public class Task implements Comparable<Task> {
     }
 
     /**
-     * Return the due date.
+     * Return the task's due date.
      *
      * @return The dueDate.
      */
@@ -49,7 +49,7 @@ public class Task implements Comparable<Task> {
     }
 
     /**
-     * Return the status.
+     * Return the task's status.
      *
      * @return The status.
      */
@@ -58,7 +58,7 @@ public class Task implements Comparable<Task> {
     }
 
     /**
-     * Return the project.
+     * Return the task's project.
      *
      * @return The project.
      */
