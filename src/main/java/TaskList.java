@@ -29,16 +29,6 @@ public class TaskList {
     }
 
     /**
-     * Edit a task item in the task list.
-     *
-     * @param task The task to edit.
-     */
-    public void updateTask(Task task) {
-        // 1. remove old task
-        // 2. add new task
-    }
-
-    /**
      * Remove a task item from the task list.
      *
      * @param task The task to remove.
@@ -54,7 +44,6 @@ public class TaskList {
      */
     public void setAsDone(Task task) {
         task.setStatus(true);
-        this.updateTask(task);
     }
 
     /**
