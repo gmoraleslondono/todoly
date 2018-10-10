@@ -1,32 +1,58 @@
-# ToDoly [![GitHub license](https://img.shields.io/github/license/gmoraleslondono/todoly.svg)](https://github.com/gmoraleslondono/todoly/blob/master/LICENSE) [![Travis (.com)](https://img.shields.io/travis/com/gmoraleslondono/todoly.svg)](https://travis-ci.com/gmoraleslondono/todoly) [![GitHub issues](https://img.shields.io/github/issues/gmoraleslondono/todoly.svg)](https://github.com/gmoraleslondono/todoly/issues) [![Known Vulnerabilities](https://snyk.io/test/github/gmoraleslondono/todoly/badge.svg)](https://snyk.io/test/github/gmoraleslondono/todoly)
+# ToDoly
+[![GitHub license](https://img.shields.io/github/license/gmoraleslondono/todoly.svg)](https://github.com/gmoraleslondono/todoly/blob/master/LICENSE) [![Travis (.com)](https://img.shields.io/travis/com/gmoraleslondono/todoly.svg)](https://travis-ci.com/gmoraleslondono/todoly) [![GitHub issues](https://img.shields.io/github/issues/gmoraleslondono/todoly.svg)](https://github.com/gmoraleslondono/todoly/issues) [![Known Vulnerabilities](https://snyk.io/test/github/gmoraleslondono/todoly/badge.svg)](https://snyk.io/test/github/gmoraleslondono/todoly)
 
-This is command-line to-do list application with a text based user interface that allows the user to create new tasks, assign them a title and due date, and choose a project for that task to belong to, also update tasks, mark as done and remove them.
+This is a command-line to-do list application with a text based user interface that allows the user to create, edit and remove tasks. The user can assign the task a title, a due date, a project, and mark it as done.
 
-## Installation Prerequisites
+## Prerequisites
 
-1. [Install Java JDK/JRE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+The following programs are required before starting
 
-2. [Install Gradle](https://gradle.org/install/)
+1. [Java JRE](https://www.java.com/en/download/) version 8 or higher. To check, run `java -version`. You should see something like this:
 
-## Build and Run
+```
+❯ java -version
+java version "9.0.4"
+Java(TM) SE Runtime Environment (build 9.0.4+11)
+Java HotSpot(TM) 64-Bit Server VM (build 9.0.4+11, mixed mode)
+```
 
-1. Clone the project:
+2. [Gradle](https://gradle.org/install/) version 4.10 or higher. To verify the installation run gradle -v to run gradle and display the version. You should see something like this:
 
-`git clone git@github.com:gmoraleslondono/todoly.git`
+```
+❯ gradle -v
+------------------------------------------------------------
+Gradle 4.10.1
+------------------------------------------------------------
 
-2. Install app:
+Build time:   2018-09-12 11:33:27 UTC
+Revision:     76c9179ea9bddc32810f9125ad97c3315c544919
 
-`gradle installApp ./build/install/todoly-java/bin/todoly-java`
+Kotlin DSL:   1.0-rc-6
+Kotlin:       1.2.61
+Groovy:       2.4.15
+Ant:          Apache Ant(TM) version 1.9.11 compiled on March 23 2018
+JVM:          9.0.4 (Oracle Corporation 9.0.4+11)
+OS:           Mac OS X 10.13.6 x86_64
 
-## Usage
+```
 
-To run this project locally use the following command:
+## Getting started
 
-`gradle run`
+Clone the project with the following command
 
-To run the tests use the following command:
+```
+git clone https://github.com/gmoraleslondono/todoly.git
+```
 
-`gradle test`
+And navigate to the project folder
+
+```
+cd todoly
+```
+
+To run the app use the following command
+
+`./gradlew run`
 
 ## Credits
 
