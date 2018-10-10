@@ -7,12 +7,22 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
 /**
- * ReadFromFile
+ * The class ReadFromFile reads from file that store the tasks list. It uses
+ * Gson to convert a Json string to an equivalent Java object.
+ *
+ * @author Gloria Morales
+ * @version 2018.10.10
+ *
  */
 public class ReadFromFile {
 
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+    /**
+     * Read from file "todoly.json"
+     *
+     * @return The list of tasks.
+     */
     public static TaskList read() {
         File file = new File("todoly.json");
         TaskList taskList;
