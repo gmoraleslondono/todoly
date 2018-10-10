@@ -18,7 +18,7 @@ public class WriteToFile {
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     /**
-     * Save to file "todoly.json"
+     * Save tasks to file "todoly.json"
      *
      * @param taskList The list of tasks.
      */

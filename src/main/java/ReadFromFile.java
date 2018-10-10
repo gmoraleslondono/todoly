@@ -19,7 +19,7 @@ public class ReadFromFile {
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     /**
-     * Read from file "todoly.json"
+     * Read tasks from file "todoly.json"
      *
      * @return The list of tasks.
      */
