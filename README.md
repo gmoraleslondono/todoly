@@ -4,21 +4,19 @@ This is command-line to-do list application with a text based user interface tha
 
 ## Installation Prerequisites
 
-1. Java JDK / JRE
-[Install Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Install Java JDK/JRE](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-2. Gradle 
-[Install Gradle](https://gradle.org/install/)
+2. [Install Gradle](https://gradle.org/install/)
 
 ## Build and Run
 
 1. Clone the project:
 
-git clone git@github.com:gmoraleslondono/todoly.git
+`git clone git@github.com:gmoraleslondono/todoly.git`
 
 2. Install app:
 
-gradle installApp ./build/install/todoly-java/bin/todoly-java
+`gradle installApp ./build/install/todoly-java/bin/todoly-java`
 
 ## Usage
 
