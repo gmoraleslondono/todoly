@@ -15,6 +15,7 @@ public class CommandLineMenu {
 
     private Scanner scanner;
     private TaskList taskList;
+    private String TABLE_HEADER = String.format(Task.TABLE_FORMAT, "DATE", "STATUS", "PROJECT", "TITLE");
 
     /**
      * Create an scanner that reads text from the terminal.
@@ -36,9 +37,7 @@ public class CommandLineMenu {
             int numberOfTasksDone = taskList.getNumberOfTasksDone();
 
             System.out.println();
-            System.out.println(">>");
             System.out.println(">> Welcome to ToDoLy.");
-            System.out.println(">>");
             System.out.println(
                     ">> You have " + numberOfTasks + " tasks todo and " + numberOfTasksDone + " tasks are done!");
             System.out.println(">>");
@@ -104,9 +103,6 @@ public class CommandLineMenu {
 
             switch (option) {
             case 1:
-                System.out.println();
-                System.out.println("Task List By due date.");
-                System.out.println();
                 showTaskListByDueDate();
                 displayMenu();
                 break;
@@ -128,6 +124,10 @@ public class CommandLineMenu {
      * Show task list sorted by due date.
      */
     private void showTaskListByDueDate() {
+        System.out.println();
+        System.out.println("Task List By due date.");
+        System.out.println();
+        System.out.println(TABLE_HEADER);
         List<Task> taskListSortedByDueDate = taskList.getTaskListSortedByDueDate();
         for (Task t : taskListSortedByDueDate) {
             System.out.println(t);
@@ -161,6 +161,7 @@ public class CommandLineMenu {
                 System.out.println();
                 System.out.println("Task List By project.");
                 System.out.println();
+                System.out.println(TABLE_HEADER);
                 selectedProject = projects.get(option - 1);
                 List<Task> taskselected = taskList.filterTaskListByProject(selectedProject);
                 for (Task t : taskselected) {
@@ -178,7 +179,7 @@ public class CommandLineMenu {
      */
     private void addNewTask() {
         System.out.println();
-        System.out.println("Adding new task.");
+        System.out.println("Add new task.");
         System.out.println();
         System.out.print("Add title: ");
         String title = scanner.nextLine();
@@ -290,7 +291,7 @@ public class CommandLineMenu {
      */
     private void updateTask(Task selectedTask) {
         System.out.println();
-        System.out.println("Editing task.");
+        System.out.println("Edit task.");
         System.out.println();
         System.out.println("Current title: " + selectedTask.getTitle());
         System.out.print("Add new title (Press Enter to skip): ");

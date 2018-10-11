@@ -14,6 +14,7 @@ public class Task implements Comparable<Task> {
     private LocalDate dueDate;
     private Boolean status;
     private String project;
+    public static String TABLE_FORMAT = "%-10s  %-6s  %-20.20s  %-40.40s";
 
     /**
      * Constructor for objects of class Task. Set up the task's details.
@@ -81,7 +82,7 @@ public class Task implements Comparable<Task> {
             statusToString = "DONE";
         }
 
-        return dueDate + "\t" + statusToString + "\t" + project + "\t" + title;
+        return String.format(TABLE_FORMAT, dueDate, statusToString, project, title);
     }
 
     /**
