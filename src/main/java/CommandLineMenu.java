@@ -15,6 +15,7 @@ public class CommandLineMenu {
 
     private Scanner scanner;
     private TaskList taskList;
+    private String TABLE_HEADER = String.format(Task.TABLE_FORMAT, "DATE", "STATUS", "PROJECT", "TITLE");
 
     /**
      * Create an scanner that reads text from the terminal.
@@ -38,13 +39,14 @@ public class CommandLineMenu {
             System.out.println();
             System.out.println(">> Welcome to ToDoLy.");
             System.out.println(
-                    ">> you have " + numberOfTasks + " tasks todo and " + numberOfTasksDone + " tasks are done!");
+                    ">> You have " + numberOfTasks + " tasks todo and " + numberOfTasksDone + " tasks are done!");
+            System.out.println(">>");
             System.out.println(">> Pick an option:");
             System.out.println(">> (1) Show Task List (By date or project)");
             System.out.println(">> (2) Add New Task.");
             System.out.println(">> (3) Edit Task (update, mark as done, remove)");
             System.out.println(">> (4) Save and Quit.");
-            System.out.println(">>");
+            System.out.print(">> ");
 
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -92,7 +94,7 @@ public class CommandLineMenu {
             System.out.println(">> (1) Show Task List By due date.");
             System.out.println(">> (2) Filter Task List By project.");
             System.out.println(">> (3) Back to home.");
-            System.out.println(">>");
+            System.out.print(">> ");
 
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -123,6 +125,9 @@ public class CommandLineMenu {
      */
     private void showTaskListByDueDate() {
         System.out.println();
+        System.out.println("Task List By due date.");
+        System.out.println();
+        System.out.println(TABLE_HEADER);
         List<Task> taskListSortedByDueDate = taskList.getTaskListSortedByDueDate();
         for (Task t : taskListSortedByDueDate) {
             System.out.println(t);
@@ -145,7 +150,7 @@ public class CommandLineMenu {
             for (int i = 0; i < projects.size(); i++) {
                 System.out.println(">> (" + (i + 1) + ") " + projects.get(i));
             }
-            System.out.println(">>");
+            System.out.print(">> ");
 
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -153,6 +158,10 @@ public class CommandLineMenu {
             }
 
             if (option > 0 && option <= projects.size()) {
+                System.out.println();
+                System.out.println("Task List By project.");
+                System.out.println();
+                System.out.println(TABLE_HEADER);
                 selectedProject = projects.get(option - 1);
                 List<Task> taskselected = taskList.filterTaskListByProject(selectedProject);
                 for (Task t : taskselected) {
@@ -170,8 +179,22 @@ public class CommandLineMenu {
      */
     private void addNewTask() {
         System.out.println();
-        System.out.print("Add title: ");
-        String title = scanner.nextLine();
+        System.out.println("Add new task.");
+        System.out.println();
+
+        boolean invalidTitle = true;
+        String title = null;
+
+        while (invalidTitle) {
+            System.out.print("Add title: ");
+            title = scanner.nextLine();
+
+            if (!title.isEmpty()) {
+                invalidTitle = false;
+            } else {
+                System.out.println("Introduce a valid title.");
+            }
+        }
 
         boolean invalidDate = true;
         LocalDate localDate = null;
@@ -190,8 +213,19 @@ public class CommandLineMenu {
 
         Boolean status = false;
 
-        System.out.print("Add project: ");
-        String project = scanner.nextLine();
+        boolean invalidProject = true;
+        String project = null;
+
+        while (invalidProject) {
+            System.out.print("Add project: ");
+            project = scanner.nextLine();
+
+            if (!project.isEmpty()) {
+                invalidProject = false;
+            } else {
+                System.out.println("Introduce a valid project.");
+            }
+        }
 
         Task newTask = new Task(title, localDate, status, project);
         taskList.addTask(newTask);
@@ -206,13 +240,15 @@ public class CommandLineMenu {
 
         while (true) {
             System.out.println();
-            System.out.println(">> Pick task to edit:");
+            System.out.println("Pick task to edit:");
+            System.out.println();
+            System.out.println("       " + TABLE_HEADER);
 
             for (int i = 0; i < tasks.size(); i++) {
                 Task task = tasks.get(i);
                 System.out.println(">> (" + (i + 1) + ") " + task.toString());
             }
-            System.out.println(">>");
+            System.out.print(">> ");
 
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -243,7 +279,7 @@ public class CommandLineMenu {
             System.out.println(">> (2) Mark as done");
             System.out.println(">> (3) Remove task");
             System.out.println(">> (4) Back to home");
-            System.out.println(">>");
+            System.out.print(">> ");
 
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -279,6 +315,8 @@ public class CommandLineMenu {
      * @param selectedTask The task to update.
      */
     private void updateTask(Task selectedTask) {
+        System.out.println();
+        System.out.println("Edit task.");
         System.out.println();
         System.out.println("Current title: " + selectedTask.getTitle());
         System.out.print("Add new title (Press Enter to skip): ");
@@ -321,6 +359,8 @@ public class CommandLineMenu {
      */
     private void markAsDone(Task selectedTask) {
         taskList.setAsDone(selectedTask);
+        System.out.println();
+        System.out.println("Task marked as DONE!");
     }
 
     /**
@@ -330,6 +370,8 @@ public class CommandLineMenu {
      */
     private void eliminateTask(Task selectedTask) {
         taskList.removeTask(selectedTask);
+        System.out.println();
+        System.out.println("Task removed!");
     }
 
     /**
@@ -340,6 +382,7 @@ public class CommandLineMenu {
         scanner.close();
 
         System.out.println();
+        System.out.println("App closed.");
         System.exit(0);
     }
 }
