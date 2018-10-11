@@ -181,8 +181,20 @@ public class CommandLineMenu {
         System.out.println();
         System.out.println("Add new task.");
         System.out.println();
-        System.out.print("Add title: ");
-        String title = scanner.nextLine();
+
+        boolean invalidTitle = true;
+        String title = null;
+
+        while (invalidTitle) {
+            System.out.print("Add title: ");
+            title = scanner.nextLine();
+
+            if (!title.isEmpty()) {
+                invalidTitle = false;
+            } else {
+                System.out.println("Introduce a valid title.");
+            }
+        }
 
         boolean invalidDate = true;
         LocalDate localDate = null;
@@ -201,8 +213,19 @@ public class CommandLineMenu {
 
         Boolean status = false;
 
-        System.out.print("Add project: ");
-        String project = scanner.nextLine();
+        boolean invalidProject = true;
+        String project = null;
+
+        while (invalidProject) {
+            System.out.print("Add project: ");
+            project = scanner.nextLine();
+
+            if (!project.isEmpty()) {
+                invalidProject = false;
+            } else {
+                System.out.println("Introduce a valid project.");
+            }
+        }
 
         Task newTask = new Task(title, localDate, status, project);
         taskList.addTask(newTask);
