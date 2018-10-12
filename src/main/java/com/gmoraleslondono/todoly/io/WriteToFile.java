@@ -1,7 +1,10 @@
+package com.gmoraleslondono.todoly.io;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 
+import com.gmoraleslondono.todoly.TaskList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

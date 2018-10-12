@@ -1,5 +1,8 @@
 import static org.junit.Assert.assertEquals;
 
+import com.gmoraleslondono.todoly.Task;
+import com.gmoraleslondono.todoly.TaskList;
+
 import org.junit.Test;
 
 public class TaskListTest {
