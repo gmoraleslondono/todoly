@@ -1,3 +1,5 @@
+package com.gmoraleslondono.todoly;
+
 import static org.junit.Assert.assertEquals;
 
 import com.gmoraleslondono.todoly.Task;
