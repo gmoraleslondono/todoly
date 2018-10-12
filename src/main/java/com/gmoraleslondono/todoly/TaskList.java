@@ -3,6 +3,7 @@ package com.gmoraleslondono.todoly;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * The TaskList class stores a list of task. Details are store such as
@@ -85,15 +86,9 @@ public class TaskList {
      * @return New list of task filter by project.
      */
     public List<Task> filterTaskListByProject(String project) {
-        List<Task> tasksByFilter = new ArrayList<>();
-        for (Task task : listOfTasks) {
-            if (task.getProject().equals(project)) {
-                tasksByFilter.add(task);
-            }
-        }
-        Collections.sort(tasksByFilter);
+        List<Task> tasksByFilter = listOfTasks.stream().filter(task -> task.getProject().equals(project))
+                .collect(Collectors.toList());
         return tasksByFilter;
-
     }
 
     /**
