@@ -2,6 +2,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.time.LocalDate;
 
+import com.gmoraleslondono.todoly.Task;
+
 public class TaskTest {
     @Test
     public void testTaskHasTitleDueDateStatusAndProject() {

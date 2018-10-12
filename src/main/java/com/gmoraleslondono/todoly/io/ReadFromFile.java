@@ -1,7 +1,10 @@
+package com.gmoraleslondono.todoly.io;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
+import com.gmoraleslondono.todoly.TaskList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;

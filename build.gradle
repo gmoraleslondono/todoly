@@ -15,7 +15,7 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'App'
+mainClassName = 'com.gmoraleslondono.todoly.App'
 
 dependencies {
     // Use Gson to convert Java Objects into JSON and back
