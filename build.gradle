@@ -36,3 +36,18 @@ repositories {
 run {
     standardInput = System.in
 }
+
+version = '1.0.0'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName,
+            'Implementation-Title': 'ToDoly',
+            'Implementation-Version': version,
+            'Implementation-Vendor': 'https://github.com/gmoraleslondono'
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
