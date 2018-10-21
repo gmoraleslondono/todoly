@@ -18,7 +18,7 @@ The following programs are required before starting
     Java HotSpot(TM) 64-Bit Server VM (build 9.0.4+11, mixed mode)
     ```
 
-- [Download the latest version](https://github.com/gmoraleslondono/todoly/releases/latest)
+- Download the latest version of [ToDoly](https://github.com/gmoraleslondono/todoly/releases/latest)
 
 ### Running
 
