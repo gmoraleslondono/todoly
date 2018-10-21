@@ -18,8 +18,8 @@ plugins {
 mainClassName = 'com.gmoraleslondono.todoly.App'
 
 dependencies {
-    // Use Gson to convert Java Objects into JSON and back
-    implementation 'com.google.code.gson:gson:2.8.5'
+    // This dependency is found on compile classpath of this component and consumers.
+    compile 'com.google.code.gson:gson:2.8.5'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
@@ -35,4 +35,19 @@ repositories {
 // Set the standard input stream for the process
 run {
     standardInput = System.in
+}
+
+version = '1.0.0'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName,
+            'Implementation-Title': 'ToDoly',
+            'Implementation-Version': version,
+            'Implementation-Vendor': 'https://github.com/gmoraleslondono'
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
