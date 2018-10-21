@@ -17,6 +17,9 @@ plugins {
 // Define the main class for the application
 mainClassName = 'com.gmoraleslondono.todoly.App'
 
+// Java version compatibility to use when compiling Java source.
+sourceCompatibility = 1.8
+
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.code.gson:gson:2.8.5'

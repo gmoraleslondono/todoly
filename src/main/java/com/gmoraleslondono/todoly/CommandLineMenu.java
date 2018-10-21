@@ -61,6 +61,7 @@ public class CommandLineMenu {
             switch (option) {
             case 1:
                 if (taskList.isEmpty()) {
+                    System.out.println();
                     System.out.println("No tasks to show.");
                     break;
                 }
@@ -71,6 +72,7 @@ public class CommandLineMenu {
                 break;
             case 3:
                 if (taskList.isEmpty()) {
+                    System.out.println();
                     System.out.println("No tasks to edit.");
                     break;
                 }
@@ -80,9 +82,12 @@ public class CommandLineMenu {
                 this.saveAndQuit();
                 break;
             default:
+                System.out.println();
                 System.out.println("Introduce a valid value.");
                 break;
             }
+
+            option = 0;
         }
     }
 
@@ -122,6 +127,8 @@ public class CommandLineMenu {
                 System.out.println("Introduce a valid value.");
                 break;
             }
+
+            option = 0;
         }
     }
 
@@ -277,6 +284,7 @@ public class CommandLineMenu {
      */
     private void chooseWhatToEdit(Task selectedTask) {
         int option = 0;
+
         while (option != 4) {
             System.out.println();
             System.out.println(">> Pick option:");
@@ -311,6 +319,8 @@ public class CommandLineMenu {
                 System.out.println("Introduce a valid value.");
                 break;
             }
+
+            option = 0;
         }
     }
 
