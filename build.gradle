@@ -18,8 +18,8 @@ plugins {
 mainClassName = 'com.gmoraleslondono.todoly.App'
 
 dependencies {
-    // Use Gson to convert Java Objects into JSON and back
-    implementation 'com.google.code.gson:gson:2.8.5'
+    // This dependency is found on compile classpath of this component and consumers.
+    compile 'com.google.code.gson:gson:2.8.5'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
