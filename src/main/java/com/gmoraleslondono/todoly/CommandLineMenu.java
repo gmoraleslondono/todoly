@@ -61,6 +61,7 @@ public class CommandLineMenu {
             switch (option) {
             case 1:
                 if (taskList.isEmpty()) {
+                    System.out.println();
                     System.out.println("No tasks to show.");
                     break;
                 }
@@ -71,6 +72,7 @@ public class CommandLineMenu {
                 break;
             case 3:
                 if (taskList.isEmpty()) {
+                    System.out.println();
                     System.out.println("No tasks to edit.");
                     break;
                 }
@@ -80,6 +82,7 @@ public class CommandLineMenu {
                 this.saveAndQuit();
                 break;
             default:
+                System.out.println();
                 System.out.println("Introduce a valid value.");
                 break;
             }
