@@ -28,7 +28,7 @@ To run the app type the following command in the terminal
 java -jar todoly.jar
 ```
 
-## Deveploment
+## Development
 
 ### Prerequisites
 
