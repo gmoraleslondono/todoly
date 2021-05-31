@@ -22,7 +22,7 @@ sourceCompatibility = 1.8
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.code.gson:gson:2.8.6'
+    compile 'com.google.code.gson:gson:2.8.7'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.13'
